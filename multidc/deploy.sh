@@ -2,21 +2,22 @@
 
 # Changable parameters
 ####################################################
-stack="opscenter-stack"
-keyname="dse-keypair-us-east-1"
-clustername="mycluster"
-pw="secretpassword"
+aws_profile="${AWS_PROFILE:-default}"
+stack="${STACK:-opscenter-stack}"
+keyname="${KEY_NAME:-dse-keypair-us-east-1}"
+clustername="${CLUSTER_NAME:-mycluster}"
+pw="${PASSWORD:-secretpassword}"
 # List params
-regions=\"us-east-1,us-east-1\"
-dcs=\"dc0,dc1\"
-dcsizes=\"3,3\"
-keys=\"dse-keypair-us-east-1,dse-keypair-us-east-1\"
-instances=\"m4.large,m4.large\"
-volsizes=\"128,128\"
+regions=\"${REGIONS:-us-east-1,us-east-1}\"
+dcs=\"${DATACENTERS:-dc0,dc1}\"
+dcsizes=\"${DATACENTER_SIZES:-3,3}\"
+keys=\"${KEYS:-dse-keypair-us-east-1,dse-keypair-us-east-1}\"
+instances=\"${INSTANCES:-m4.large,m4.large}\"
+volsizes=\"${VOLUME_SIZES:-128,128}\"
 ####################################################
 
 template="$PWD/cfn-opscenter.json"
-aws cloudformation create-stack \
+aws --profile "$aws_profile" cloudformation create-stack \
 --stack-name $stack \
 --template-body file://$template \
 --capabilities CAPABILITY_IAM \
