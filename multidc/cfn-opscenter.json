@@ -386,6 +386,7 @@
             "command" : { "Fn::Join" : ["", [
               "#!/usr/bin/env bash -e \n",
               "cd ~ubuntu \n",
+              "pip install --upgrade pip \n",
               "pip install requests \n",
               "cd install-datastax-ubuntu-leeroy-master/bin/lcm \n",
               "pubip=\"", {"Ref" : "OpsCenterEIP"}, "\" \n",
@@ -407,6 +408,7 @@
             "command" : { "Fn::Join" : ["", [
               "#!/usr/bin/env bash -e \n",
               "cd ~ubuntu \n",
+              "pip install --upgrade pip \n",
               "pip install pyyaml taskcat \n",
               "wget -O aws.zip https://github.com/LeeroyGroup/amazon-cloudformation-dse/archive/leeroy-dev.zip \n",
               "unzip aws.zip \n",
@@ -448,6 +450,7 @@
           "#!/bin/bash -xe\n",
           "apt-get update\n",
           "apt-get -y install python-setuptools python-pip\n",
+          "pip install --upgrade pip \n",
           "pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz \n",
           "ln -s /usr/local/init/ubuntu/cfn-hup /etc/init.d/cfn-hup \n",
           "chmod 775 /usr/local/init/ubuntu/cfn-hup \n",

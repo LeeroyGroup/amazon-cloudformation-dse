@@ -272,6 +272,7 @@
               "01_add_node" : {
                 "command" : { "Fn::Join" : ["", [
                   "#!/usr/bin/env bash -e \n",
+                  "pip install --upgrade pip \n",
                   "pip install requests \n",
                   "cd ~ubuntu \n",
                   "echo \"", { "Ref" : "PublicKey" }, "\" >> .ssh/authorized_keys \n",
@@ -323,6 +324,7 @@
           "echo \"/dev/xvdf       /mnt/cassandra   ext4    defaults,nofail        0       2\" >> /etc/fstab \n",
           "apt-get update\n",
           "apt-get -y install python python-setuptools python-pip\n",
+          "pip install --upgrade pip \n",
           "pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz \n",
           "ln -s /usr/local/init/ubuntu/cfn-hup /etc/init.d/cfn-hup \n",
           "chmod 775 /usr/local/init/ubuntu/cfn-hup \n",
