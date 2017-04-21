@@ -395,6 +395,7 @@
               "--opsc-ip $pubip ",
               "--clustername ",{ "Ref" : "ClusterName" }, " ",
               "--privkey $privkey ",
+              "--datapath /mnt/cassandra ",
               "--user ubuntu \n"
               ]]}
           }
